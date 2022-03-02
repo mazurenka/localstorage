@@ -1,8 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "./bll/store";
+import {incValueAC} from "./bll/counter-reducer";
 
 function App() {
-    console.log('App')
+
+    const value = useSelector<AppStateType, number>(state => state.counter.value)
+    const dispatch = useDispatch()
+    const increment = () => {
+        dispatch(incValueAC())
+    }
+    const resetIncrement = () => {
+
+    }
+
+
+    /*console.log('App')
     const [value, setValue] = useState(0)
     console.log('value: ', value)
     const increment = () => {
@@ -29,7 +43,7 @@ function App() {
         localStorage.clear()
         setValue(0)
     }
-    console.log('render JSX')
+    console.log('render JSX')*/
     return (
         <div className="App">
             <h1> {value} </h1>
