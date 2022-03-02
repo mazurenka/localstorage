@@ -17,12 +17,19 @@ function App() {
 
     useEffect(() => {
         localStorage.setItem('valueKey', JSON.stringify(value))
+
     }, [value])
+
+    const resetIncrement = () => {
+        localStorage.clear()
+        setValue(0)
+    }
 
     return (
         <div className="App">
             <h1> {value} </h1>
             <button onClick={increment}>inc</button>
+            <button onClick={resetIncrement}>reset</button>
         </div>
     );
 }
