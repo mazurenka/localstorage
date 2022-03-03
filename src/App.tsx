@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./bll/store";
@@ -8,42 +8,19 @@ function App() {
 
     const value = useSelector<AppStateType, number>(state => state.counter.value)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+
+    }, [])
+
     const increment = () => {
         dispatch(incValueAC())
     }
-    const resetIncrement = () => {
-
-    }
-
-
-    /*console.log('App')
-    const [value, setValue] = useState(0)
-    console.log('value: ', value)
-    const increment = () => {
-        setValue(value + 1)
-    }
-
-    useEffect(() => {
-        console.log('useEffect with getItem')
-        let save = localStorage.getItem('valueKey')
-        if (save) {
-            let saveValue = JSON.parse(save)
-            setValue(saveValue)
-        }
-    }, [])
-
-    useEffect(() => {
-        console.log('useEffect with setItem')
-        localStorage.setItem('valueKey', JSON.stringify(value))
-
-    }, [value])
-
 
     const resetIncrement = () => {
-        localStorage.clear()
-        setValue(0)
+
     }
-    console.log('render JSX')*/
+
     return (
         <div className="App">
             <h1> {value} </h1>

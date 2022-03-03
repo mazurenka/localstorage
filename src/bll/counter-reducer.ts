@@ -1,5 +1,5 @@
 const initialState = {
-    value: 1000
+    value: 0
 }
 
 type InitialStateType = typeof initialState
